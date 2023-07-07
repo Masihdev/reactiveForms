@@ -42,6 +42,13 @@
       <label><input type="checkbox" value="music" formControlName="hobbies"> Music</label>
     </div>
 
+    <div formArrayName="skills">
+      <ng-container *ngFor="let skill of reactiveForm.get('skills')['controls']; index as i">
+        <input type="text" placeholder="Add skill.." formControlName="{{ i }}">
+      </ng-container>
+      <button (click)="addSkill()">Add skill..</button>
+    </div>
+
     <input type="submit" value="Submit" id="btn">
   </form>
 </div>
