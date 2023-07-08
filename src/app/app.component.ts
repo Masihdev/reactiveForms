@@ -33,6 +33,19 @@ export class AppComponent implements OnInit {
         new FormControl(null, Validators.required),
       ])
     });
+
+    // this.reactiveForm.get('personalDetails.firstname').valueChanges.subscribe((value) => {
+    //   console.log(value);
+    // });
+
+    // this.reactiveForm.valueChanges.subscribe((value) => {
+    //   console.log(value);
+    // });
+
+    this.reactiveForm.statusChanges.subscribe((value) => {
+      console.log(value);
+      
+    });
   }
 
   onSubmit() {
