@@ -42,14 +42,44 @@ export class AppComponent implements OnInit {
     //   console.log(value);
     // });
 
-    this.reactiveForm.statusChanges.subscribe((value) => {
-      console.log(value);
-      
-    });
+    // this.reactiveForm.statusChanges.subscribe((value) => {
+    //   console.log(value);
+    // });
+
+    // this.reactiveForm.setValue({
+    //   personalDetails: {
+    //     firstname: '',
+    //     lastname : '',
+    //     email : 'bahar@gmail.com'
+    //   },
+    //     gender: '',
+    //     country: '',
+    //     hobbies: '',
+    //     skills: []
+    // });
+
+    this.reactiveForm.patchValue({
+      personalDetails: {
+        firstname: 'Masihullah'
+      }
+    })
+
+
   }
 
   onSubmit() {
     console.log(this.reactiveForm);
+    this.reactiveForm.reset({
+      personalDetails: {
+        firstname: '',
+        lastname : '',
+        email : ''
+      },
+        gender: 'Male',
+        country: 'india',
+        hobbies: '',
+        skills: []
+    });
   }
 
   addSkill() {
