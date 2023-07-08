@@ -8,6 +8,10 @@
       <!-- <div *ngIf="reactiveForm.get('firstname').touched && reactiveForm.get('firstname').invalid">
         <small>Firstname should be of at least five characters.</small>
       </div> -->
+      <div>
+        <small *ngIf="reactiveForm.get('personalDetails.firstname').errors?.['required'] && reactiveForm.get('personalDetails.firstname').touched">Firstname is a required field.</small>
+        <small *ngIf="reactiveForm.get('personalDetails.firstname').errors?.['noSpaceAllowed']">Firstname cannot contain a space.</small>
+      </div>
 
       <label for="lname">Last Name</label>
       <input type="text" id="lname" placeholder="Your last name.." formControlName="lastname">
